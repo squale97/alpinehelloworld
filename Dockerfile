@@ -11,6 +11,9 @@ RUN apk add --no-cache --update \
     libffi-dev \
     openssl-dev \
     build-base
+# Create a virtual environment and activate it
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
 ADD ./webapp/requirements.txt /tmp/requirements.txt
 
 # Install dependencies
